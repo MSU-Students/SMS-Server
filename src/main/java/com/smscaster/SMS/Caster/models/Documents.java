@@ -1,16 +1,13 @@
 package com.smscaster.SMS.Caster.models;
 
-import java.io.File;
-
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "document")
-public class  Documents {
+public class Documents {
 
   @Id
-  private ObjectId _id;
+  private String _id;
 
   private String name;
   private String subject;
@@ -24,14 +21,6 @@ public class  Documents {
     this.docType = docType;
     this.date = date;
     this.file = file;
-  }
-
-  public String get_id() {
-    return _id.toHexString();
-  }
-
-  public void set_id(ObjectId _Id) {
-    this._id = _Id;
   }
 
   public String getname() {
