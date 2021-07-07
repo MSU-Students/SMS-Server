@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/message")
+@RequestMapping("/sms-api/message")
 public class MessageController {
 
   @Autowired
