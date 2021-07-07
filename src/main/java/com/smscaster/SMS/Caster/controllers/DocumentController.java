@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,10 +24,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import net.bytebuddy.build.Plugin.Engine.Summary;
 
+
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/document")
+@RequestMapping("/sms-api/document")
 public class DocumentController {
 
   @Autowired
@@ -66,6 +68,7 @@ public class DocumentController {
 
   }
 
+  @ApiOperation(value = "Insert some documents", nickname = "addDocument")
   @RequestMapping(value = "/", method = RequestMethod.POST)
   public Documents Insert(@RequestBody Documents model) {
     this.documentRepository.insert(model);
