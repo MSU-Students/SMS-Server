@@ -10,16 +10,18 @@ public class Officers {
   @Id
   private ObjectId _id;
 
+  private String name;
   private String firstName;
   private String lastName;
-  private String contact;
-  private String password;
+  private String contactNumber;
+  private String accountType;
 
-  public Officers(String firstName, String lastName, String contact, String password) {
+  public Officers(String name, String firstName, String lastName, String contactNumber,  String accountType) {
+    this.name = name;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.contact = contact;
-    this.password = password;
+    this.contactNumber = contactNumber;
+    this.accountType = accountType;
   }
 
   public String get_id() {
@@ -46,19 +48,27 @@ public class Officers {
     this.lastName = lastName;
   }
 
-  public String getcontact() {
-    return contact;
+  public String getContactNumber() {
+    return contactNumber;
   }
 
-  public void setcontact(String contact) {
-    this.contact = contact;
+  public void setContactNumber(String contactNumber) {
+    this.contactNumber = contactNumber;
   }
 
-  public String getpassword() {
-    return password;
+  public String getName() {
+    return name;
   }
 
-  public void setpassword(String password) {
-    this.password = password;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getAccountType() {
+    return accountType;
+  }
+
+  public void setAccountType(String accountType) {
+    this.accountType = accountType;
   }
 }
