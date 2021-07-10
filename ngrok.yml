@@ -1,0 +1,6 @@
+authtoken: 1v8Ma3htPGvCmVoazrIfSH2SblJ_5HEkneUAtGvjV8ekCksty
+tunnels:
+  default:
+    addr: 8080
+    proto: http
+    subdomain: cjesinch
