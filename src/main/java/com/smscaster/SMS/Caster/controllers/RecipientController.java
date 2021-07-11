@@ -1,19 +1,20 @@
 package com.smscaster.SMS.Caster.controllers;
 
-import java.util.List;
-
 import com.smscaster.SMS.Caster.models.Recipients;
 import com.smscaster.SMS.Caster.repositories.IRecipientRepository;
-
+import io.swagger.annotations.ApiOperation;
+import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/sms-api/recipient")
 public class RecipientController {
@@ -30,17 +31,18 @@ public class RecipientController {
     return this.recipientRepository.findBy_id(id);
   }
 
+  @ApiOperation(value = "Get get all recipients", nickname = "getRecipients")
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public List<Recipients> GetAll() {
     List<Recipients> RecipientsList = this.recipientRepository.findAll();
     return RecipientsList;
   }
 
+  @ApiOperation(value = "Insert some recipients", nickname = "addRecipients")
   @RequestMapping(value = "/", method = RequestMethod.POST)
-  public Recipients Insert(@RequestBody Recipients model) {
-    model.set_id(ObjectId.get());
-    this.recipientRepository.insert(model);
-    return model;
+  public List<Recipients> Insert(@RequestBody List<Recipients> model) {
+    List<Recipients> recipientList = this.recipientRepository.insert(model);
+    return recipientList;
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

@@ -52,6 +52,7 @@ public class DocumentController {
   }
 
   @PostMapping("/upload/{id}")
+  @ApiOperation(value = "upload some documents", nickname = "uploadDocument")
   public ResponseEntity<ResponseMessage> uploadFile(@PathVariable("id") String id,
       @ApiParam(name = "file", value = "Select the file to Upload", required = true) @RequestPart("file") MultipartFile file)
       throws IOException {
