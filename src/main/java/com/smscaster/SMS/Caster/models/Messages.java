@@ -1,45 +1,42 @@
 package com.smscaster.SMS.Caster.models;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.lang.NonNull;
 
-@Document(collection = "message")
 public class Messages {
 
-  @Id
-  private ObjectId _id;
+  @NonNull
+  private final String phoneNumber; // destination
 
-  private String sms;
-  private String recipient;
-  
+  @NonNull
+  private final String message;
 
-  public Messages(String sms, String recipient) {
-    this.sms = sms;
-    this.recipient = recipient;
+  public Messages(
+    @JsonProperty("phoneNumber") String phoneNumber,
+    @JsonProperty("message") String message
+  ) {
+    this.phoneNumber = phoneNumber;
+    this.message = message;
   }
 
-  public String get_id() {
-    return _id.toHexString();
+  public String getPhoneNumber() {
+    return phoneNumber;
   }
 
-  public void set_id(ObjectId _Id) {
-    this._id = _Id;
+  public String getMessage() {
+    return message;
   }
 
-  public String getsms() {
-    return sms;
-  }
-
-  public void setsms(String sms) {
-    this.sms = sms;
-  }
-
-  public String getrecipient() {
-    return recipient;
-  }
-
-  public void setrecipient(String recipient) {
-    this.recipient = recipient;
+  @Override
+  public String toString() {
+    return (
+      "SmsRequest{" +
+      "phoneNumber= ..." +
+      '\'' +
+      ", message='" +
+      message +
+      '\'' +
+      '}'
+    );
   }
 }
