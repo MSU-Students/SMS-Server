@@ -3,7 +3,7 @@ package com.smscaster.SMS.Caster.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.lang.NonNull;
 
-public class Messages {
+public class SMSs {
 
   @NonNull
   private final String phoneNumber; // destination
@@ -11,7 +11,7 @@ public class Messages {
   @NonNull
   private final String message;
 
-  public Messages(
+  public SMSs(
     @JsonProperty("phoneNumber") String phoneNumber,
     @JsonProperty("message") String message
   ) {

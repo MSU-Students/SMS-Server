@@ -1,7 +1,7 @@
 package com.smscaster.SMS.Caster.config;
 
-import com.smscaster.SMS.Caster.models.Messages;
-import com.smscaster.SMS.Caster.repositories.IMessageRepository;
+import com.smscaster.SMS.Caster.models.SMSs;
+import com.smscaster.SMS.Caster.repositories.ISMSRepository;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.rest.api.v2010.account.MessageCreator;
 import com.twilio.type.PhoneNumber;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("twilio")
-public class TwilioSmsSender implements IMessageRepository {
+public class TwilioSmsSender implements ISMSRepository {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(
     TwilioSmsSender.class
@@ -25,7 +25,7 @@ public class TwilioSmsSender implements IMessageRepository {
   }
 
   @Override
-  public void sendSms(Messages smsRequest) {
+  public void sendSms(SMSs smsRequest) {
     if (isPhoneNumberValid(smsRequest.getPhoneNumber())) {
       PhoneNumber to = new PhoneNumber(smsRequest.getPhoneNumber());
       PhoneNumber from = new PhoneNumber(twilioConfiguration.getTrialNumber());
