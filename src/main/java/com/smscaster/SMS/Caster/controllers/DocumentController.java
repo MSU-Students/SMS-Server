@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiParam;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -49,28 +50,18 @@ public class DocumentController {
 
   @ApiOperation(value = "Upload some documents", nickname = "uploadDocument")
   @PostMapping("/upload/{id}")
-  public ResponseEntity<ResponseMessage> uploadFile(
-    @PathVariable("id") String id,
-    @ApiParam(
-      name = "file",
-      value = "Select the file to Upload",
-      required = true
-    ) @RequestPart("file") MultipartFile file
-  )
-    throws IOException {
+  public ResponseEntity<ResponseMessage> uploadFile(@PathVariable("id") String id,
+      @ApiParam(name = "file", value = "Select the file to Upload", required = true) @RequestPart("file") MultipartFile file)
+      throws IOException {
     Optional<Documents> doc = this.documentRepository.findById(id);
     if (!doc.isEmpty()) {
       Documents data = doc.get();
       data.setfile(new String(file.getBytes()));
       this.documentRepository.save(data);
       String message = "Uploaded the file successfully: ";
-      return ResponseEntity
-        .status(HttpStatus.OK)
-        .body(new ResponseMessage(message));
+      return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
     } else {
-      return ResponseEntity
-        .status(HttpStatus.NOT_FOUND)
-        .body(new ResponseMessage("Document not FOund"));
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseMessage("Document not FOund"));
     }
   }
 
@@ -82,10 +73,7 @@ public class DocumentController {
   }
 
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public Documents Update(
-    @PathVariable("id") String id,
-    @Validated @RequestBody Documents model
-  ) {
+  public Documents Update(@PathVariable("id") String id, @Validated @RequestBody Documents model) {
     this.documentRepository.save(model);
     return model;
   }

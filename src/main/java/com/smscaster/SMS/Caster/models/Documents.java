@@ -15,19 +15,27 @@ public class Documents {
   private String docType;
   private String date;
   private String file;
+  private String smsStatus;
 
-  public Documents(
-    String name,
-    String subject,
-    String docType,
-    String date,
-    String file
-  ) {
+  private String contentType;
+
+  public Documents(String name, String subject, String docType, String date, String file, String contentType,
+      String smsStatus) {
     this.name = name;
     this.subject = subject;
     this.docType = docType;
     this.date = date;
     this.file = file;
+    this.setContentType(contentType);
+    this.smsStatus = smsStatus;
+  }
+
+  public String getContentType() {
+    return contentType;
+  }
+
+  public void setContentType(String contentType) {
+    this.contentType = contentType;
   }
 
   public String get_id() {
@@ -76,5 +84,13 @@ public class Documents {
 
   public void setfile(String file) {
     this.file = file;
+  }
+
+  public String getStatus() {
+    return smsStatus;
+  }
+
+  public void setStatus(String smsStatus) {
+    this.smsStatus = smsStatus;
   }
 }
