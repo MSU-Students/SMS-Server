@@ -16,7 +16,6 @@ public class Documents {
   private String date;
   private String file;
   private String smsStatus;
-
   private String contentType;
 
   public Documents(String name, String subject, String docType, String date, String file, String contentType,
@@ -26,7 +25,7 @@ public class Documents {
     this.docType = docType;
     this.date = date;
     this.file = file;
-    this.setContentType(contentType);
+    this.contentType = contentType;
     this.smsStatus = smsStatus;
   }
 
