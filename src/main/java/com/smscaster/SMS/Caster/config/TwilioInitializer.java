@@ -15,13 +15,13 @@ public class TwilioInitializer {
 
   @Autowired
   public TwilioInitializer(TwilioConfiguration twilioConfiguration) {
-    // Twilio.init(
-    //   twilioConfiguration.getAccountSid(),
-    //   twilioConfiguration.getAuthToken()
-    // );
-    // LOGGER.info(
-    //   "Twilio initialized ... with account sid {} ",
-    //   twilioConfiguration.getAccountSid()
-    // );
+    Twilio.init(
+      twilioConfiguration.getAccountSid(),
+      twilioConfiguration.getAuthToken()
+    );
+    LOGGER.info(
+      "Twilio initialized ... with account sid {} ",
+      twilioConfiguration.getAccountSid()
+    );
   }
 }
