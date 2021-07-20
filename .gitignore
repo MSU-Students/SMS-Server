@@ -31,4 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 src/main/resources/application.yml
+=======
+/uploads
+>>>>>>> 02199351706f91d09a069ab7c86bdba75a9654f7

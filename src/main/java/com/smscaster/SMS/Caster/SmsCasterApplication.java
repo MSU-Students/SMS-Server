@@ -1,7 +1,9 @@
 package com.smscaster.SMS.Caster;
 
+import com.smscaster.SMS.Caster.models.FileStorageProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,9 +17,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @EnableMongoRepositories("com.smscaster.SMS.Caster.repositories")
+@EnableConfigurationProperties({ FileStorageProperties.class })
 public class SmsCasterApplication {
 
-  @CrossOrigin(origins = "*")
   public static void main(String[] args) {
     SpringApplication.run(SmsCasterApplication.class, args);
   }
@@ -27,7 +29,7 @@ public class SmsCasterApplication {
     return new WebMvcConfigurer() {
       @Override
       public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/sms-api").allowedOrigins("http://localhost:8080");
+        registry.addMapping("/sms-api").allowedOrigins("*");
       }
     };
   }
