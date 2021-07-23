@@ -15,17 +15,25 @@ public class Documents {
   private String docType;
   private String date;
   private String file;
-  private String smsStatus;
+  private Boolean smsStatus;
   private String contentType;
 
-  public Documents(String name, String subject, String docType, String date, String file, String contentType,
-      String smsStatus) {
+  public Documents(Boolean smsStatus, String name, String subject, String docType, String date, String file,
+      String contentType) {
+    this.smsStatus = smsStatus;
     this.name = name;
     this.subject = subject;
     this.docType = docType;
     this.date = date;
     this.file = file;
     this.contentType = contentType;
+  }
+
+  public Boolean getSmsStatus() {
+    return smsStatus;
+  }
+
+  public void setSmsStatus(Boolean smsStatus) {
     this.smsStatus = smsStatus;
   }
 
@@ -83,13 +91,5 @@ public class Documents {
 
   public void setfile(String file) {
     this.file = file;
-  }
-
-  public String getStatus() {
-    return smsStatus;
-  }
-
-  public void setStatus(String smsStatus) {
-    this.smsStatus = smsStatus;
   }
 }

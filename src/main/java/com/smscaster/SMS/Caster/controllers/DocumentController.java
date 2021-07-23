@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -72,8 +73,10 @@ public class DocumentController {
     return model;
   }
 
+  @ApiOperation(value = "Update this document", nickname = "updateDocument")
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public Documents Update(@PathVariable("id") String id, @Validated @RequestBody Documents model) {
+  public Documents Update(@PathVariable("id") ObjectId id, @Validated @RequestBody Documents model) {
+    model.set_id(id);
     this.documentRepository.save(model);
     return model;
   }
