@@ -50,11 +50,9 @@ public class OfficerController {
     return model;
   }
 
+  @ApiOperation(value = "Update this officer", nickname = "updateOfficer")
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-  public Officers Update(
-    @PathVariable("id") ObjectId id,
-    @Validated @RequestBody Officers model
-  ) {
+  public Officers Update(@PathVariable("id") ObjectId id, @Validated @RequestBody Officers model) {
     model.set_id(id);
     this.officerRepository.save(model);
     return model;

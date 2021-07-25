@@ -17,9 +17,11 @@ public class Documents {
   private String file;
   private Boolean smsStatus;
   private String contentType;
+  private String semester;
+  private String acadYear;
 
-  public Documents(Boolean smsStatus, String name, String subject, String docType, String date, String file,
-      String contentType) {
+  public Documents(Boolean smsStatus, String name, String subject, String docType, String date, String file, 
+  String semester, String acadYear, String contentType) {
     this.smsStatus = smsStatus;
     this.name = name;
     this.subject = subject;
@@ -27,6 +29,8 @@ public class Documents {
     this.date = date;
     this.file = file;
     this.contentType = contentType;
+    this.semester = semester;
+    this.acadYear = acadYear;
   }
 
   public Boolean getSmsStatus() {
@@ -91,5 +95,21 @@ public class Documents {
 
   public void setfile(String file) {
     this.file = file;
+  }
+
+  public String getsemester() {
+    return semester;
+  }
+
+  public void setsemester(String semester) {
+    this.semester = semester;
+  }
+  
+  public String getacadYear() {
+    return acadYear;
+  }
+
+  public void setacadYear(String acadYear) {
+    this.acadYear = acadYear;
   }
 }

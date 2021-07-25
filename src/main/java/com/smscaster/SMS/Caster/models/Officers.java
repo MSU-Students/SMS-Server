@@ -15,13 +15,17 @@ public class Officers {
   private String lastName;
   private String contactNumber;
   private String accountType;
+  private String position;
+  private Boolean session;
 
-  public Officers(String name, String firstName, String lastName, String contactNumber,  String accountType) {
+  public Officers(String name, String firstName, String lastName, String contactNumber,  String accountType, String position, Boolean session) {
     this.name = name;
     this.firstName = firstName;
     this.lastName = lastName;
     this.contactNumber = contactNumber;
     this.accountType = accountType;
+    this.position = position;
+    this.session = session;
   }
 
   public String get_id() {
@@ -70,5 +74,21 @@ public class Officers {
 
   public void setAccountType(String accountType) {
     this.accountType = accountType;
+  }
+
+  public String getPosition() {
+    return position;
+  }
+
+  public void setPosition(String position) {
+    this.position = position;
+  }
+
+  public Boolean getSession() {
+    return session;
+  }
+
+  public void getSession(Boolean session) {
+    this.session = session;
   }
 }
