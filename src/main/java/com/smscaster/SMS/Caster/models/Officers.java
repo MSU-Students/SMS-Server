@@ -17,8 +17,18 @@ public class Officers {
   private String accountType;
   private String position;
   private Boolean session;
+  private String password;
 
-  public Officers(String name, String firstName, String lastName, String contactNumber,  String accountType, String position, Boolean session) {
+  public Officers(
+    String name,
+    String firstName,
+    String lastName,
+    String contactNumber,
+    String accountType,
+    String position,
+    Boolean session,
+    String password
+  ) {
     this.name = name;
     this.firstName = firstName;
     this.lastName = lastName;
@@ -26,6 +36,15 @@ public class Officers {
     this.accountType = accountType;
     this.position = position;
     this.session = session;
+    this.password = password;
+  }
+
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
   public String get_id() {
