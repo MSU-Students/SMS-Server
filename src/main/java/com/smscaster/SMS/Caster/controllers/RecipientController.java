@@ -59,4 +59,10 @@ public class RecipientController {
   public void Delete(@PathVariable ObjectId id) {
     this.recipientRepository.delete(this.recipientRepository.findBy_id(id));
   }
+
+  @ApiOperation(value = "Delete all recipient", nickname = "deleteRecipients")
+  @RequestMapping(value = "/", method = RequestMethod.DELETE)
+  public void deleteAll() {
+    this.recipientRepository.deleteAll();
+  }
 }

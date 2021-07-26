@@ -63,4 +63,7 @@ public class OfficerController {
   public void Delete(@PathVariable ObjectId id) {
     this.officerRepository.delete(this.officerRepository.findBy_id(id));
   }
+
+ 
+
 }
